@@ -18,8 +18,8 @@
 ### 2. External or Third-Party Modules
 
 - Created and published by other developers.
-- Must be installed using a package manager like NPM.
-- Imported into the project where required.
+- Must be installed porperly using a package manager like NPM before importing packages. 
+- And then functionalities are imported
 
 ### 3. Custom or User-Defined Modules
 
@@ -38,9 +38,9 @@
 
 When importing a module, NodeJS searches in the following order:
 
-1. It checks if a specific file path is provided. If the file exists at that path, it imports it.
-2. It checks inside the `node_modules` folder for installed third-party libraries. If found, it imports the package from there.
-3. It checks for built-in NodeJS modules provided by the environment. If available, it loads the internal module.
+1. Custom Imports : It checks if a specific file path is provided. If the file exists at that path, it imports it.
+2. External Imports : It checks inside the `node_modules` folder for installed third-party libraries. If found, it imports the package from there.
+3. Internal Imports : It checks for built-in NodeJS modules provided by the environment. If available, it loads the internal module.
 4. If the module is not found in any of the above locations, NodeJS throws an error.
 
 ## Wrapper Function and Program Entry
@@ -53,7 +53,7 @@ When importing a module, NodeJS searches in the following order:
 
 The wrapper function looks like this internally:
 
-```
+```js
 (function (exports, require, module, __filename, __dirname) {
   // code inside the file
 })
@@ -65,7 +65,7 @@ The wrapper function looks like this internally:
 - `require` is used to import other modules.
 - `module` contains metadata about the current module.
 - `__filename` gives the full path of the current file.
-- `__dirname` gives the directory path of the current file.
+- `__dirname` gives the full directory path of the current file.
 
 ### Program Execution
 
@@ -75,14 +75,13 @@ The wrapper function looks like this internally:
 
 ### Example: Reading a File in Node.js
 
-1.  Create Files
-
-- Create a JavaScript file and text file with some text inside in it
-
+1.  Create Files : 
+  1. Create a JavaScript file 
+  2. text file with some text inside in it
 2. In the JS code
-1. Import `fs` Module using `fs` (File System) which is a built-in Node.js module used to work with files.
-1. Use `readFileSync(fileLocation , encodingFormat)` to read file data synchronously.
-1. Read File Content
+3. Import `fs` Module using `fs` (File System) which is a built-in Node.js module used to work with files.
+4. Use `readFileSync(fileLocation , encodingFormat)` to read file data synchronously.
+5. Read File Content
 
 ```js
 const fs = require('fs');

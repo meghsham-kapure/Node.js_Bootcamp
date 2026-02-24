@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: postgres:17.4
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_DB: bookshelf_database
+      POSTGRES_USER: maverick
+      POSTGRES_PASSWORD: maverick650
